@@ -12,7 +12,7 @@ const projects = [
     description:
       "Une plateforme pensée pour accompagner les étudiants dans leur vie à Dakar, avec des rubriques dédiées aux écoles, au logement, au budget et aux guides pratiques.",
     technologies: ["Next.js", "Tailwind CSS"],
-    image: "/projects/dakar-etudiant.png",
+    image: "/Projects/dakar-etudiant.png",
     alt: "Page d'accueil de la plateforme Dakar Étudiant",
     featured: true,
     href: "",
@@ -24,7 +24,7 @@ const projects = [
     description:
       "Un univers digital immersif pour un établissement à Libreville, mettant en valeur son identité, ses événements et son ambiance.",
     technologies: ["Next.js", "Tailwind CSS", "Vercel"],
-    image: "/projects/entre-nous-bar.png",
+    image: "/Projects/entre-nous-bar.png",
     alt: "Page d'accueil du site Entre Nous Bar",
     featured: false,
     href: "https://entre-nous-bar.vercel.app/",
@@ -36,7 +36,7 @@ const projects = [
     description:
       "Une boutique en ligne dédiée à la mode, avec une présentation des produits et des services de la boutique.",
     technologies: ["WordPress", "WooCommerce", "Elementor Pro"],
-    image: "/projects/momo-fashion.png",
+    image: "/Projects/momo-fashion.png",
     alt: "Boutique en ligne Momo Fashion",
     featured: false,
     href: "",
@@ -48,7 +48,7 @@ const projects = [
     description:
       "Un site portfolio conçu pour présenter un univers audiovisuel, des prestations créatives et des réalisations photographiques.",
     technologies: ["Next.js", "Tailwind CSS", "Vercel"],
-    image: "/projects/th-vision.png",
+    image: "/Projects/th-vision.png",
     alt: "Site portfolio de TH VISION",
     featured: false,
     href: "https://th-vision.vercel.app/",
