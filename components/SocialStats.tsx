@@ -1,15 +1,21 @@
 
 "use client";
 
+import {
+  SiTiktok,
+  SiInstagram,
+  SiFacebook,
+} from "react-icons/si";
+import { ArrowUpRight, Users } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const socialNetworks = [
   {
     name: "TikTok",
     handle: "@leclerc_i",
-    followers: "30K+",
+    followers: "33K+",
     description: "Humour, tendances et divertissement.",
-    symbol: "♪",
+    Icon: SiTiktok,
     href: "https://www.tiktok.com/@leclerc_i",
   },
   {
@@ -17,7 +23,7 @@ const socialNetworks = [
     handle: "@leclerc__i",
     followers: "15K+",
     description: "Contenus visuels et développement d'audience.",
-    symbol: "◎",
+    Icon: SiInstagram,
     href: "https://www.instagram.com/leclerc__i/",
   },
   {
@@ -25,7 +31,7 @@ const socialNetworks = [
     handle: "Leclerc Imounga",
     followers: "2,5K+",
     description: "Contenus et interaction avec la communauté.",
-    symbol: "f",
+    Icon: SiFacebook,
     href: "https://www.facebook.com/leclerc.imounga.7/",
   },
 ];
@@ -75,12 +81,17 @@ export default function SocialStats() {
               }}
               className="mt-8 rounded-2xl border border-[#D6A83A]/20 bg-[#D6A83A]/[0.04] p-5"
             >
-              <p className="text-sm text-white/50">
-                Une présence sur plusieurs plateformes
+              <div className="flex items-center gap-3 text-white/50">
+                <Users size={18} strokeWidth={1.6} aria-hidden="true" />
+                <p className="text-sm">
+                  Une présence sur plusieurs plateformes
+                </p>
+              </div>
+
+              <p className="mt-3 text-3xl font-bold text-[#D6A83A]">
+                50,5K+
               </p>
-              <p className="mt-2 text-3xl font-bold text-[#D6A83A]">
-                47,5K+
-              </p>
+
               <p className="mt-2 text-xs leading-6 text-white/40">
                 Abonnés cumulés sur les trois réseaux, selon les
                 statistiques déclarées.
@@ -89,49 +100,58 @@ export default function SocialStats() {
           </motion.div>
 
           <div className="space-y-4">
-            {socialNetworks.map((network, index) => (
-              <motion.a
-                key={network.name}
-                href={network.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visiter mon profil ${network.name}`}
-                initial={reduceMotion ? false : { opacity: 0, x: 25 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{
-                  duration: reduceMotion ? 0 : 0.55,
-                  delay: reduceMotion ? 0 : index * 0.12,
-                  ease: "easeOut",
-                }}
-                whileHover={reduceMotion ? undefined : { x: 5 }}
-                className="group flex items-center gap-5 rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-colors duration-300 hover:border-[#D6A83A]/35 sm:p-6"
-              >
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-2xl font-bold text-[#D6A83A] transition-colors group-hover:bg-[#D6A83A]/10">
-                  {network.symbol}
-                </div>
+            {socialNetworks.map((network, index) => {
+              const Icon = network.Icon;
 
-                <div className="min-w-0 flex-1">
-                  <h3 className="font-semibold">{network.name}</h3>
-                  <p className="mt-1 text-xs text-white/40 sm:text-sm">
-                    {network.handle}
-                  </p>
-                  <p className="mt-2 text-xs leading-5 text-white/50">
-                    {network.description}
-                  </p>
-                </div>
+              return (
+                <motion.a
+                  key={network.name}
+                  href={network.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visiter mon profil ${network.name}`}
+                  initial={reduceMotion ? false : { opacity: 0, x: 25 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{
+                    duration: reduceMotion ? 0 : 0.55,
+                    delay: reduceMotion ? 0 : index * 0.12,
+                    ease: "easeOut",
+                  }}
+                  whileHover={reduceMotion ? undefined : { x: 5 }}
+                  className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-colors duration-300 hover:border-[#D6A83A]/35 sm:gap-5 sm:p-6"
+                >
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[#D6A83A]/20 bg-[#D6A83A]/[0.05] transition-colors group-hover:bg-[#D6A83A]/15">
+                    <Icon
+                      size={25}
+                      aria-hidden="true"
+                      className="text-[#D6A83A]"
+                    />
+                  </div>
 
-                <div className="shrink-0 text-right">
-                  <p className="text-xl font-bold sm:text-2xl">
-                    {network.followers}
-                  </p>
-                  <p className="mt-1 text-xs text-white/35">abonnés</p>
-                  <span className="mt-2 inline-block text-sm text-[#D6A83A]">
-                    Visiter ↗
-                  </span>
-                </div>
-              </motion.a>
-            ))}
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-semibold">{network.name}</h3>
+                    <p className="mt-1 text-xs text-white/40 sm:text-sm">
+                      {network.handle}
+                    </p>
+                    <p className="mt-2 text-xs leading-5 text-white/50">
+                      {network.description}
+                    </p>
+                  </div>
+
+                  <div className="shrink-0 text-right">
+                    <p className="text-lg font-bold sm:text-2xl">
+                      {network.followers}
+                    </p>
+                    <p className="mt-1 text-xs text-white/35">abonnés</p>
+                    <span className="mt-2 inline-flex items-center gap-1 text-sm text-[#D6A83A]">
+                      Visiter
+                      <ArrowUpRight size={15} aria-hidden="true" />
+                    </span>
+                  </div>
+                </motion.a>
+              );
+            })}
           </div>
         </div>
 
@@ -158,7 +178,8 @@ export default function SocialStats() {
             rel="noopener noreferrer"
             className="inline-flex shrink-0 items-center gap-3 rounded-full border border-[#D6A83A]/40 px-5 py-3 text-sm font-medium text-[#D6A83A] transition-all hover:bg-[#D6A83A] hover:text-black"
           >
-            Voir mon profil ↗
+            Voir mon profil
+            <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </motion.div>
       </div>

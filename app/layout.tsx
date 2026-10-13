@@ -15,6 +15,12 @@ const geistMono = Geist_Mono({
 
 
 export const metadata: Metadata = {
+  
+  metadataBase: new URL("https://leclerc-imounga-portfolio.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
+
   title: {
     default: "Leclerc Imounga | Développeur Web & Créateur Digital",
     template: "%s | Leclerc Imounga",

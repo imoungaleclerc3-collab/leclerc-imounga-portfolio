@@ -1,30 +1,36 @@
 
 "use client";
 
+import {
+  Code2,
+  Rocket,
+  Palette,
+  ChartNoAxesCombined,
+} from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal from "./Reveal";
 
 const highlights = [
   {
-    icon: "💻",
+    icon: Code2,
     title: "Développement web",
     description:
       "Des sites modernes, responsives et adaptés aux besoins des entreprises.",
   },
   {
-    icon: "🚀",
+    icon: Rocket,
     title: "Entrepreneuriat",
     description:
       "Transformer les opportunités en projets structurés et concrets.",
   },
   {
-    icon: "🎨",
+    icon: Palette,
     title: "Création digitale",
     description:
       "Concevoir des interfaces et des contenus visuellement cohérents.",
   },
   {
-    icon: "📈",
+    icon: ChartNoAxesCombined,
     title: "Stratégie digitale",
     description:
       "Valoriser les marques grâce au web et à la communication.",
@@ -87,38 +93,48 @@ export default function About() {
               href="#projets"
               className="mt-9 inline-flex items-center gap-3 text-sm font-semibold text-[#D6A83A] transition-all hover:gap-5"
             >
-              Découvrir mon univers <span>→</span>
+              Découvrir mon univers
+              <span aria-hidden="true">→</span>
             </a>
           </motion.div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {highlights.map((item, index) => (
-              <motion.article
-                key={item.title}
-                initial={
-                  reduceMotion ? false : { opacity: 0, y: 25 }
-                }
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{
-                  duration: reduceMotion ? 0 : 0.55,
-                  delay: reduceMotion ? 0 : index * 0.1,
-                  ease: "easeOut",
-                }}
-                whileHover={reduceMotion ? undefined : { y: -4 }}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition-colors duration-300 hover:border-[#D6A83A]/40"
-              >
-                <span className="text-3xl">{item.icon}</span>
+            {highlights.map((item, index) => {
+              const Icon = item.icon;
 
-                <h3 className="mt-5 text-lg font-semibold">
-                  {item.title}
-                </h3>
+              return (
+                <motion.article
+                  key={item.title}
+                  initial={reduceMotion ? false : { opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{
+                    duration: reduceMotion ? 0 : 0.55,
+                    delay: reduceMotion ? 0 : index * 0.1,
+                    ease: "easeOut",
+                  }}
+                  whileHover={reduceMotion ? undefined : { y: -4 }}
+                  className="group rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition-colors duration-300 hover:border-[#D6A83A]/40"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#D6A83A]/20 bg-[#D6A83A]/[0.07] transition-colors duration-300 group-hover:bg-[#D6A83A]/15">
+                    <Icon
+                      size={25}
+                      strokeWidth={1.6}
+                      aria-hidden="true"
+                      className="text-[#D6A83A]"
+                    />
+                  </div>
 
-                <p className="mt-3 text-sm leading-7 text-white/50">
-                  {item.description}
-                </p>
-              </motion.article>
-            ))}
+                  <h3 className="mt-5 text-lg font-semibold">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-7 text-white/50">
+                    {item.description}
+                  </p>
+                </motion.article>
+              );
+            })}
           </div>
         </div>
       </div>
