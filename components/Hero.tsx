@@ -1,6 +1,7 @@
 
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
 export default function Hero() {
@@ -19,33 +20,27 @@ export default function Hero() {
   return (
     <section
       id="accueil"
-      className="relative flex min-h-screen items-center overflow-hidden bg-[#080808] px-6 pb-16 pt-32 text-white sm:px-10 lg:px-16"
+      className="relative isolate overflow-hidden bg-[#080808] px-6 pb-16 pt-32 text-white sm:px-10 lg:min-h-screen lg:px-16 lg:pb-20"
     >
-      {/* Lumières décoratives */}
-      <motion.div
+      {/* Lumières dorées */}
+      <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-40 top-1/4 h-96 w-96 rounded-full bg-[#D6A83A]/10 blur-[140px]"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
       />
-
-      <motion.div
+      
+      <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-[#D6A83A]/10 blur-[120px]"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.8, delay: 0.2 }}
+        className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-[#D6A83A]/10 blur-[140px]"
       />
 
-      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-2">
+      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 lg:min-h-[650px] lg:grid-cols-2 lg:gap-8">
         {/* Présentation */}
-        <div>
+        <div className="relative z-10">
           <motion.div
             {...reveal(0.1)}
-            className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2"
+            className="mb-7 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2"
           >
-            <span className="h-2 w-2 animate-pulse rounded-full bg-[#D6A83A]" />
+            <span className="h-2 w-2 rounded-full bg-[#D6A83A]" />
             <span className="text-xs tracking-wide text-white/70 sm:text-sm">
               Disponible pour de nouveaux projets
             </span>
@@ -53,166 +48,143 @@ export default function Hero() {
 
           <motion.p
             {...reveal(0.2)}
-            className="mb-5 text-sm font-medium uppercase tracking-[0.3em] text-[#D6A83A]"
+            className="mb-5 text-xs font-medium uppercase tracking-[0.28em] text-[#D6A83A] sm:text-sm"
           >
-            ENTREPRENEUR · CRÉATEUR DIGITAL
+            ÉTUDIANT · ENTREPRENEUR · DÉVELOPPEUR WEB
           </motion.p>
 
           <motion.h1
             {...reveal(0.3)}
-            className="text-5xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl"
+            className="text-5xl font-bold leading-[1.06] tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl"
           >
-            Leclerc
+            Bonjour,
             <br />
-            <span className="text-[#D6A83A]">Imounga.</span>
+            moi c’est
+            <br />
+            <span className="text-[#D6A83A]">Leclerc Imounga.</span>
           </motion.h1>
 
-          <motion.h2
-            {...reveal(0.4)}
-            className="mt-6 text-xl font-medium text-white/85 sm:text-2xl"
-          >
-            Je transforme les idées
-            <br className="hidden sm:block" /> en expériences digitales.
-          </motion.h2>
-
           <motion.p
-            {...reveal(0.5)}
-            className="mt-5 max-w-xl text-base leading-8 text-white/55 sm:text-lg"
+            {...reveal(0.4)}
+            className="mt-6 max-w-xl text-base leading-8 text-white/65 sm:text-lg"
           >
-            Développement web, design et stratégie digitale :
-            je conçois des solutions modernes pour donner vie
-            aux projets des entreprises et des entrepreneurs.
+            Étudiant en Entrepreneuriat et Gestion des PME, passionné par le
+            digital, la création de projets et le développement web.
+            J’accompagne les entreprises et les entrepreneurs dans leur
+            présence en ligne grâce à des sites modernes et performants.
           </motion.p>
 
           {/* Boutons */}
           <motion.div
-            {...reveal(0.65)}
-            className="mt-9 flex flex-wrap gap-4"
+            {...reveal(0.55)}
+            className="mt-8 flex flex-wrap gap-4"
           >
             <a
               href="#projets"
               className="inline-flex items-center gap-3 rounded-full bg-[#D6A83A] px-7 py-4 text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-1 hover:bg-[#e8bd53]"
             >
-              Découvrir mes projets <span>↗</span>
+              Voir mes projets <span aria-hidden="true">↗</span>
             </a>
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-3 rounded-full border border-white/15 px-7 py-4 text-sm font-medium text-white transition-all duration-300 hover:border-[#D6A83A] hover:text-[#D6A83A]"
+              className="inline-flex items-center gap-3 rounded-full border border-white/20 px-7 py-4 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:border-[#D6A83A] hover:text-[#D6A83A]"
             >
-              Me contacter
+              Me contacter <span aria-hidden="true">↗</span>
             </a>
           </motion.div>
 
           {/* Indicateurs */}
           <motion.div
-            {...reveal(0.8)}
-            className="mt-12 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/10 pt-7"
+            {...reveal(0.7)}
+            className="mt-10 grid max-w-xl grid-cols-3 border-t border-white/10 pt-6"
           >
-            <div>
-              <p className="text-2xl font-bold text-white">Web</p>
-              <p className="mt-1 text-xs text-white/45 sm:text-sm">
-                Développement
+            <div className="pr-3">
+              <p className="text-2xl font-bold text-white">3 ans+</p>
+              <p className="mt-1 text-xs leading-5 text-white/50 sm:text-sm">
+                Études en gestion
               </p>
             </div>
 
-            <div>
-              <p className="text-2xl font-bold text-white">Digital</p>
-              <p className="mt-1 text-xs text-white/45 sm:text-sm">
-                Création & stratégie
+            <div className="border-l border-white/10 px-4">
+              <p className="text-2xl font-bold text-white">5+</p>
+              <p className="mt-1 text-xs leading-5 text-white/50 sm:text-sm">
+                Projets digitaux
               </p>
             </div>
 
-            <div>
-              <p className="text-2xl font-bold text-white">Business</p>
-              <p className="mt-1 text-xs text-white/45 sm:text-sm">
-                Entrepreneuriat
+            <div className="border-l border-white/10 pl-4">
+              <p className="text-2xl font-bold text-white">33K+</p>
+              <p className="mt-1 text-xs leading-5 text-white/50 sm:text-sm">
+                Abonnés TikTok
               </p>
             </div>
           </motion.div>
         </div>
 
-        {/* Zone visuelle */}
+        {/* Portrait personnel */}
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, x: 35 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
             duration: reduceMotion ? 0 : 0.9,
-            delay: reduceMotion ? 0 : 0.35,
+            delay: reduceMotion ? 0 : 0.25,
             ease: "easeOut",
           }}
-          className="relative mx-auto w-full max-w-lg"
+          className="relative mx-auto w-full max-w-xl"
         >
-          <motion.div
+          {/* Halo doré */}
+          <div
             aria-hidden="true"
-            className="absolute inset-8 rounded-full bg-[#D6A83A]/10 blur-3xl"
-            animate={reduceMotion ? undefined : { scale: [1, 1.06, 1] }}
-            transition={{
-              duration: 5,
-              repeat: reduceMotion ? 0 : Infinity,
-              ease: "easeInOut",
-            }}
+            className="absolute inset-8 rounded-full bg-[#D6A83A]/20 blur-[90px]"
           />
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#1d1a12] via-[#101010] to-[#080808] p-7 sm:p-10">
-            <div className="flex items-center justify-between border-b border-white/10 pb-5">
-              <span className="text-xs uppercase tracking-[0.25em] text-white/50">
-                Portfolio personnel
-              </span>
-              <span className="text-sm text-[#D6A83A]">01 / 04</span>
-            </div>
+          {/* Cadre du portrait */}
+          <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] border border-[#D6A83A]/20 bg-gradient-to-br from-[#282115] via-[#121212] to-[#080808] sm:min-h-[520px] lg:min-h-[590px]">
+            <Image
+              src="/images/leclerc-portrait.jpeg"
+              alt="Portrait de Leclerc Imounga"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-[center_25%]"
+            />
 
-            <div className="flex min-h-[300px] flex-col justify-center py-10 sm:min-h-[360px]">
-              <motion.div
-                initial={reduceMotion ? false : { scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{
-                  duration: reduceMotion ? 0 : 0.6,
-                  delay: reduceMotion ? 0 : 0.7,
-                }}
-                className="mb-7 flex h-20 w-20 items-center justify-center rounded-2xl border border-[#D6A83A]/30 bg-[#D6A83A]/10 text-3xl font-bold text-[#D6A83A]"
-              >
-                LI
-              </motion.div>
+            {/* Dégradé pour fondre la photo dans le design */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-black/10"
+            />
 
-              <p className="text-sm uppercase tracking-[0.25em] text-[#D6A83A]">
-                Ma vision
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+              <p className="text-xs uppercase tracking-[0.3em] text-[#D6A83A]">
+                Étudiant · Entrepreneur
               </p>
-
-              <h3 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
-                Créativité.
+              <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
+                Construire.
                 <br />
-                Technologie.
-                <br />
-                <span className="text-white/40">Impact.</span>
-              </h3>
-
-              <p className="mt-5 max-w-sm text-sm leading-7 text-white/50">
-                Des idées bien pensées, des expériences soignées
-                et des projets conçus pour faire la différence.
-              </p>
-            </div>
-
-            <div className="flex items-center justify-between border-t border-white/10 pt-5">
-              <span className="text-sm text-white/50">
+                Innover.
+                <span className="text-[#D6A83A]"> Entreprendre.</span>
+              </h2>
+              <p className="mt-3 text-sm text-white/60">
                 Basé à Dakar, Sénégal
-              </span>
-              <span className="text-xl text-[#D6A83A]">✳</span>
+              </p>
             </div>
           </div>
 
+          {/* Carte flottante */}
           <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: reduceMotion ? 0 : 0.6,
-              delay: reduceMotion ? 0 : 0.9,
+              delay: reduceMotion ? 0 : 0.8,
             }}
-            className="absolute -bottom-22 left-3 rounded-2xl border border-white/10 bg-[#151515] px-5 py-4 shadow-2xl sm:-left-7"
+            className="absolute -bottom-5 right-3 rounded-2xl border border-white/10 bg-[#111111]/95 px-5 py-4 shadow-2xl backdrop-blur-md sm:-right-5"
           >
-            <p className="text-xs text-white/45">Approche</p>
+            <p className="text-xs text-white/45">Mon domaine</p>
             <p className="mt-1 text-sm font-semibold text-white">
-              Créative & stratégique
+              Web & stratégie digitale
             </p>
           </motion.div>
         </motion.div>
